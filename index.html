@@ -3,110 +3,44 @@
 <head>
   <meta charset="UTF-8">
   <title>MK7DX V2 Time Trials Submission</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      background: #111;
-      color: #eee;
-      padding: 40px;
-      max-width: 600px;
-      margin: auto;
-    }
-    h1 {
-      text-align: center;
-      color: #7fc8ff;
-    }
-    form {
-      background: #222;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 15px #000;
-    }
-    label {
-      display: block;
-      margin-top: 15px;
-      font-weight: bold;
-    }
-    input, select {
-      width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-      border-radius: 5px;
-      border: none;
-    }
-    button {
-      margin-top: 20px;
-      padding: 12px;
-      width: 100%;
-      background: #7fc8ff;
-      border: none;
-      border-radius: 5px;
-      font-weight: bold;
-      cursor: pointer;
-      color: #000;
-    }
-    button:hover {
-      background: #5eaedf;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
 </head>
 <body>
 
-  <h1>MK7DX V2 Time Trials</h1>
+  <h1><span>MK7DX</span> V2 Time Trials</h1>
   <form id="submissionForm">
-    <label>Player Name</label>
-    <input type="text" id="player" required>
+    <div id="form">
+      <label>Player Name</label>
+      <input type="text" id="player" required placeholder="Player name...">
 
-    <label>Select Track</label>
-    <select id="track" required>
-      <option value="" disabled selected>Choose a track</option>
-      <option value="GBA Sky Garden">GBA Sky Garden</option>
-      <option value="GBA Sunset Wilds">GBA Sunset Wilds</option>
-      <option value="N64 Royal Raceway">N64 Royal Raceway</option>
-      <option value="Wii U Thwomp Ruins">Wii U Thwomp Ruins</option>
-    </select>
+      <label>Select Track</label>
+      <input type="text" id="track" list="tracks" required placeholder="Type or choose a track">
+      <datalist id="tracks">
+        <option value="GBA Sky Garden">
+        <option value="GBA Sunset Wilds">
+        <option value="N64 Royal Raceway">
+        <option value="Wii U Thwomp Ruins">
+      </datalist>
 
-    <label>Time (e.g. 1:23.456)</label>
-    <input type="text" id="time" required placeholder="e.g. 1:23.456">
+      <label>Time (e.g. 1:23.456)</label>
+      <input type="text" id="time" required placeholder="e.g. 1:23.456">
 
-    <label>YouTube Link (Footage Required)</label>
-    <input type="url" id="youtube" required placeholder="https://youtube.com/...">
+      <label>YouTube Link (Footage Required)</label>
+      <input type="url" id="youtube" required placeholder="https://youtube.com/...">
 
-    <button type="submit">Submit</button>
+      <button type="submit"><i class="fa-solid fa-paper-plane"></i> Submit</button>
+    </div>
+    <div id="result" style="display: none;">
+      <h2>Time successfully sent!</h2>
+      <h4>It will be reviewed by our team</h4>
+      <button onClick="goBack()"><i class="fa-solid fa-arrow-left"></i> Go back</button>
+    </div>
   </form>
 
-  <script>
-    const webhookURL = 'https://discord.com/api/webhooks/1392255826290413659/6N468WLLGHpVngJNrPa6e_9ye5-Ml1CaDcP39YACOjZupBuYoV3na4PWEsyg_cGhOZtp';
-
-    document.getElementById('submissionForm').addEventListener('submit', async function(e) {
-      e.preventDefault();
-
-      const player = document.getElementById('player').value.trim();
-      const track = document.getElementById('track').value;
-      const time = document.getElementById('time').value.trim();
-      const youtube = document.getElementById('youtube').value.trim();
-
-      if (!player || !track || !time || !youtube) {
-        alert('Please fill in all fields.');
-        return;
-      }
-
-      const content = `**New Time Trial Submission**\n\n🏁 **Player:** ${player}\n🗺️ **Track:** ${track}\n⏱️ **Time:** ${time}\n🎥 **Footage:** ${youtube}`;
-
-      try {
-        await fetch(webhookURL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ content })
-        });
-        alert('Submission sent! Thank you!');
-        document.getElementById('submissionForm').reset();
-      } catch (err) {
-        alert('Error sending submission.');
-        console.error(err);
-      }
-    });
-  </script>
+  <script src="assets/js/script.js"></script>
 
 </body>
 </html>

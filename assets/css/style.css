@@ -1,0 +1,102 @@
+@font-face {
+    font-family: 'mario';
+    src: url('../fonts/mario.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'nintendo';
+    src: url('../fonts/nintendo.otf') format('opentype');
+}
+
+body {
+    font-family: sans-serif;
+    background: #111;
+    color: #eee;
+    padding: 40px;
+    max-width: 600px;
+    margin: auto;
+}
+
+h1 {
+    font-family: 'mario', sans-serif;
+    text-align: center;
+    font-size: 36px;
+    color: #ffffff;
+}
+
+h2, h4 {
+    font-family: 'nintendo', sans-serif;
+    text-align: center;
+    font-weight: lighter;
+    color: #ffffff;
+}
+
+span {
+    background: linear-gradient(130deg,rgba(188, 249, 94, 1) 0%, rgba(111, 187, 255, 1) 25%, rgba(254, 118, 214, 1) 50%, rgba(255, 202, 144, 1) 75%, rgba(208, 170, 255, 1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 5px rgba(188, 249, 94, 0.6)) 
+            drop-shadow(0 0 10px rgba(111, 187, 255, 0.4)) 
+            drop-shadow(0 0 15px rgba(254, 118, 214, 0.3));
+}
+
+form {
+    background: #222;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px #000;
+}
+
+label {
+    font-family: 'nintendo', sans-serif;
+    display: block;
+    margin-top: 15px;
+}
+
+input {
+    font-family: 'nintendo', sans-serif;
+    width: 97%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: none;
+}
+
+select {
+    font-family: 'nintendo', sans-serif;
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: none;
+}
+
+button {
+    font-family: 'nintendo', sans-serif;
+    font-size: 18px;
+    margin-top: 20px;
+    padding: 6px;
+    width: 100%;
+    background: #232325;
+    background: linear-gradient(0deg,rgba(35, 35, 37, 1) 0%, rgba(84, 84, 84, 1) 100%);
+    border-top: 2px solid #A0A6A2;
+    border-bottom: 2px solid #5F5E63;
+    border-left: 2px solid #676769;
+    border-right: 2px solid #676769;
+    outline: 3px solid #ffffff;
+    border-radius: 2px;
+    cursor: pointer;
+    color: #F7E23B
+}
+
+button::before {
+    background: linear-gradient(0deg,rgba(215, 184, 42, 1) 0%, rgba(234, 230, 61, 1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+button:hover {
+    outline: 3px solid #fdea5c;
+}
